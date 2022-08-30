@@ -1,0 +1,12 @@
+.anim-hidden {
+    opacity: 0;
+    position: relative;
+    top: 15;
+    transition: all 0.2s 0s ease;
+}
+
+.anim-show {
+    opacity: 1;
+    top: 0;
+    left: 0;
+}
