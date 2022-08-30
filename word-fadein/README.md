@@ -1,5 +1,6 @@
 # 概要
 1文字ずつフェードインしてくるJavaScriptです。
+アニメーション終了後に、指定したHTML要素からword-fadein-endedイベントを発火します。
 
 # 使い方
 word-fadein.jsとword-fadein.cssを読み込んだ後、WordFadeinAnimeクラスを初期化してください。
