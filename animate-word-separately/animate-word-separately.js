@@ -1,11 +1,20 @@
 class WordAnimeSeparately {
-    constructor(targetid, word, speed = 50, initClass = "anim-hidden", addClass = "anim-show") {
+    constructor({
+        targetid,
+        word,
+        speed = 50,
+        initClass = "anim-hidden",
+        addClass = "anim-show",
+        animType = "",
+    }) {
+        // コンストラクタ
         this.targetid = targetid
         this.speed = speed;
         this.word = word;
         this.targetElm = document.getElementById(targetid);
         this.initClass = initClass;
         this.addClass = addClass;
+        this.animType = animType;
         this.init();
     }
 
@@ -13,12 +22,27 @@ class WordAnimeSeparately {
         // 処理内容：
         // 1: 文字を分割し配列に格納
         // 2: それぞれの文字をspanで囲み、クラスを設定して、HTMLを追加
+        this.setClass();
         const wordAry = this.word.split('');
         let html = '';
         for (let i = 0; i < wordAry.length; i++) {
-            html += '<span class="' + this.initClass + '">' + wordAry[i] + '</span>';
+            // 半角スペースが消える対応
+            let word = wordAry[i];
+            if (word === ' ') word = '&ensp;';
+            html += '<span class="' + this.initClass + '">' + word + '</span>';
         }
         this.targetElm.innerHTML += html;
+    }
+
+    setClass() {
+        // アニメーションタイプに応じたクラスをプロパティにセットする
+        if (this.animType === '') return false;
+        switch (this.animType) {
+            case 'typing':
+                this.initClass = 'typing-anim-hidden';
+                this.addClass = 'typing-anim-show';
+                break;
+        }
     }
 
     play() {

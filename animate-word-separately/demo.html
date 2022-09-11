@@ -6,11 +6,31 @@
 </head>
 
 <body>
-    <h1 id="area"></h1>
+
+    <div style="width: 100%; text-align: center;">
+        <h1>デフォルトのアニメーション</h1>
+        <h2 id="default"></h2>
+    </div>
+    <div style="width: 100%; text-align: center;">
+        <h1>タイピング風アニメーション</h1>
+        <h2 id="typing"></h2>
+    </div>
+
     <script src="./animate-word-separately.js"></script>
     <script>
-        const fadeinAnim = new WordAnimeSeparately('area', 'こんな感じでアニメーションします。', 50);
-        fadeinAnim.play();
+        const defaultAnim = new WordAnimeSeparately({
+            targetid: 'default',
+            word: 'デフォルトアニメーション',
+            speed: 100,
+        });
+        defaultAnim.play();
+        const typingAnim = new WordAnimeSeparately({
+            targetid: 'typing',
+            word: 'typing animation',
+            speed: 100,
+            animType: 'typing',
+        });
+        typingAnim.play();
     </script>
 </body>
 
