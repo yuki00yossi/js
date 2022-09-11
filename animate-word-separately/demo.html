@@ -10,27 +10,44 @@
     <div style="width: 100%; text-align: center;">
         <h1>デフォルトのアニメーション</h1>
         <h2 id="default"></h2>
+        <button class="rerunBtn" value="default">rerun</button>
     </div>
     <div style="width: 100%; text-align: center;">
         <h1>タイピング風アニメーション</h1>
         <h2 id="typing"></h2>
+        <button class="rerunBtn" value="typing">rerun</button>
     </div>
 
     <script src="./animate-word-separately.js"></script>
     <script>
-        const defaultAnim = new WordAnimeSeparately({
+        const animes = {};
+        // デフォルトアニメーション初期化
+        animes['default'] = new WordAnimeSeparately({
             targetid: 'default',
             word: 'デフォルトアニメーション',
-            speed: 100,
         });
-        defaultAnim.play();
-        const typingAnim = new WordAnimeSeparately({
+        // タイピング風アニメーション初期化
+        animes['typing'] = new WordAnimeSeparately({
             targetid: 'typing',
             word: 'typing animation',
             speed: 100,
             animType: 'typing',
         });
-        typingAnim.play();
+        // 全てのアニメーションを実行
+        Object.keys(animes).forEach((elm) => {
+            // this[elm].play();
+            animes[elm].play();
+        });
+
+        // 再表示ボタン
+        const rerunBtns = document.getElementsByClassName('rerunBtn');
+        Array.prototype.forEach.call(rerunBtns, function(item) {
+            item.addEventListener('click', (e) => {
+                console.log(e.currentTarget.value);
+                animes[e.currentTarget.value].playback();
+                animes[e.currentTarget.value].play();
+            });
+        });
     </script>
 </body>
 

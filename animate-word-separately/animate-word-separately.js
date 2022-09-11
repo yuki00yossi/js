@@ -59,4 +59,12 @@ class WordAnimeSeparately {
             }
         }, this.speed)
     }
+
+    playback() {
+        const targetAry = this.targetElm.children;
+        let loopIndex = 0;
+        for (let i = loopIndex; i < targetAry.length; i++) {
+            targetAry[i].classList.remove(this.addClass);
+        }
+    }
 }
