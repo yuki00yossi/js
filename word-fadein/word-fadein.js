@@ -1,10 +1,11 @@
 class WordFadeinAnime {
-    constructor(targetid, word, speed = 50) {
+    constructor(targetid, word, speed=50, initClass="anim-hidden", addClass="anim-show") {
         this.targetid = targetid
         this.speed = speed;
         this.word = word;
         this.targetElm = document.getElementById(targetid);
-        this.id = Math.floor(Math.random() * 1000);
+        this.initClass = initClass;
+        this.addClass = addClass;
         this.init();
     }
 
@@ -14,7 +15,7 @@ class WordFadeinAnime {
         // 2: それぞれの文字をspanで囲み、クラスを設定して、HTMLを追加
         const wordAry = this.word.split('');
         for (let i = 0; i < wordAry.length; i++) {
-            this.targetElm.innerHTML += '<span class="anim-hidden word_' + this.id + i + '">' + wordAry[i] + '</span>';
+            this.targetElm.innerHTML += '<span class="' this.initClass + '">' + wordAry[i] + '</span>';
         }
     }
 
@@ -27,7 +28,7 @@ class WordFadeinAnime {
                 const event = new CustomEvent('word-fadein-ended');
                 this.targetElm.dispatchEvent(event);
             } else {
-                targetAry[loopIndex].classList.add('anim-show');
+                targetAry[loopIndex].classList.add(this.addClass);
                 loopIndex++;
             }
         }, this.speed)
