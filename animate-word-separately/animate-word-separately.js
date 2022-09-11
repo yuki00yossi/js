@@ -1,5 +1,5 @@
-class WordFadeinAnime {
-    constructor(targetid, word, speed=50, initClass="anim-hidden", addClass="anim-show") {
+class WordAnimeSeparately {
+    constructor(targetid, word, speed = 50, initClass = "anim-hidden", addClass = "anim-show") {
         this.targetid = targetid
         this.speed = speed;
         this.word = word;
@@ -16,7 +16,7 @@ class WordFadeinAnime {
         const wordAry = this.word.split('');
         let html = '';
         for (let i = 0; i < wordAry.length; i++) {
-            html += '<span class="' this.initClass + '">' + wordAry[i] + '</span>';
+            html += '<span class="' + this.initClass + '">' + wordAry[i] + '</span>';
         }
         this.targetElm.innerHTML += html;
     }
