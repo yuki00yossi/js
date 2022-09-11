@@ -14,9 +14,11 @@ class WordFadeinAnime {
         // 1: 文字を分割し配列に格納
         // 2: それぞれの文字をspanで囲み、クラスを設定して、HTMLを追加
         const wordAry = this.word.split('');
+        let html = '';
         for (let i = 0; i < wordAry.length; i++) {
-            this.targetElm.innerHTML += '<span class="' this.initClass + '">' + wordAry[i] + '</span>';
+            html += '<span class="' this.initClass + '">' + wordAry[i] + '</span>';
         }
+        this.targetElm.innerHTML += html;
     }
 
     play() {
