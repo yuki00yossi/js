@@ -1,4 +1,4 @@
-export default function setImgPreview(e)
+function setImgPreview(e)
     {
         const fr = new FileReader();
         const previewElm = document.getElementById(e.target.dataset.targetId);
