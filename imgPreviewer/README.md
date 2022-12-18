@@ -3,19 +3,24 @@ input type="file"で選択された画像のプレビュー表示をする関数
 
 # 使用方法
 **STEP１**
+
 ImgPreviewerクラスをインスタンス化
 
 **STEP２**
+
 プレビュー表示用の要素を準備する
 
 **STEP３**
+
 inputタグに下記のdata属性とonchange属性をセットする
+
 data属性
 1. (必須)data-target-id ⇦プレビュー画像を表示する要素のID名
 2. (任意)data-classes ⇦プレビューのために挿入されるimg要素に付与するクラス
 
-onchange属性（addEventLister等でも可）
-instance.setImgPreview(event);
+onchange属性（addEventLister等でも可)
+
+instance.setImgPreview(event);  
 
 # 使用例
 ```html
