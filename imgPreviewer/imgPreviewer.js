@@ -3,7 +3,7 @@ class ImgPreviewer
     /**
      * コンストラクタ
      * 
-     * @param {Array<String>}   allowedExtensions   許可するファイルタイプを格納した配列。
+     * @param {Array<String>}   allowedExtensions   許可するファイルのmimeタイプを格納した配列。
      * デフォルトで'image/jpeg', 'image/gif', 'image/png'の３つを指定
      * @param {Int}             maxSize             最大ファイルサイズをバイト単位で指定。
      * デフォルトは5000000(5MB)
